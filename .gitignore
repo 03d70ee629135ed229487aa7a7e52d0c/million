@@ -12,3 +12,4 @@ coverage
 .turbo
 .eslintcache
 .vscode
+test-app/
