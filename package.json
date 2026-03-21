@@ -11,21 +11,15 @@
     "ui",
     "browser"
   ],
-  "homepage": "https://million.dev",
+  "homepage": "https://github.com/03d70ee629135ed229487aa7a7e52d0c/million",
   "bugs": {
-    "url": "https://github.com/aidenybai/million/issues"
+    "url": "https://github.com/03d70ee629135ed229487aa7a7e52d0c/million/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aidenybai/million.git"
+    "url": "git+https://github.com/03d70ee629135ed229487aa7a7e52d0c/million.git"
   },
-  "funding": "https://github.com/sponsors/aidenybai",
   "license": "MIT",
-  "author": {
-    "name": "Aiden Bai",
-    "email": "hello@aidenybai.com",
-    "url": "https://aidenybai.com"
-  },
   "sideEffects": false,
   "exports": {
     ".": {
@@ -126,6 +120,18 @@
     "test:dev": "vitest watch"
   },
   "prettier": "@vercel/style-guide/prettier",
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "@babel/core": "^7.23.7",
     "@babel/types": "^7.23.6",

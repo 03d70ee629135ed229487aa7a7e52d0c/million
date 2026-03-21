@@ -91,9 +91,8 @@ export interface Options extends Omit<CompilerOptions, 'telemetry'> {
    */
   mode?: 'react' | 'vdom';
   /**
-   * Million.js collects anonymous telemetry data about general usage. Participation is optional, and you may opt-out at any time.
-   * For more information, please see https://million.dev/telemetry.
-   * @default true
+   * Million.js collects anonymous telemetry data about general usage. Participation is optional, and you may opt-in if desired.
+   * @default false
    */
   telemetry?: boolean;
 }

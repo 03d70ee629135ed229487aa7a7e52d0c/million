@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import type { ComponentProps, ReactNode, Ref } from 'react';
 import type { VNode } from '../million';
 import type { MillionPortal } from '../types';
-import { REGISTRY, RENDER_SCOPE } from './constants';
+import { REGISTRY, RENDER_SCOPE, isCompiledComponent } from './constants';
 
 export const scopedContext = createContext<boolean>(false);
 
@@ -57,8 +57,7 @@ export const renderReactScope = (
 
   const isBlock =
     isValidElement(vnode) &&
-    typeof vnode.type === 'function' &&
-    '_c' in vnode.type;
+    isCompiledComponent(vnode.type);
   const isCallable = isBlock && (vnode.type as any)._c;
 
   if (typeof window === 'undefined') {

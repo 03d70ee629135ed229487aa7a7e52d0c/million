@@ -1,9 +1,23 @@
-// The following code are for the compield `block` components
-import type { ReactPortal, ComponentType, JSX } from 'react';
-import { createElement, useState, useContext, Fragment } from 'react';
+import type { ReactPortal, ComponentType, JSX, Ref } from 'react';
+import {
+  createElement,
+  useState,
+  useContext,
+  useCallback,
+  useMemo,
+  useRef,
+  Fragment,
+} from 'react';
+import {
+  block as createBlock,
+  mount$,
+  patch as patchBlock,
+  remove$ as removeBlock,
+} from '../million/block';
+import { MapHas$, MapSet$ } from '../million/constants';
 import type { MillionPortal, MillionProps, Options } from '../types';
-import { block } from './block';
-import { renderReactScope, scopedContext } from './utils';
+import { Effect, REGISTRY, RENDER_SCOPE, SVG_RENDER_SCOPE } from './constants';
+import { processProps, renderReactScope, scopedContext, unwrap } from './utils';
 
 function isEqual(a: unknown, b: unknown): boolean {
   // Faster than Object.is
@@ -33,12 +47,77 @@ export function compiledBlock(
   { portals, ...options }: CompiledBlockOptions,
 ): ComponentType<MillionProps> {
   const blockName = `CompiledBlock(Inner(${options.name}))`;
-  const RenderBlock = block<MillionProps>((props) => render(props), {
-    ...options,
-    scoped: undefined,
-    name: blockName,
-    shouldUpdate: shouldCompiledBlockUpdate,
-  });
+  const defaultType = options.svg ? SVG_RENDER_SCOPE : RENDER_SCOPE;
+
+  const blockTarget = createBlock(
+    ((props: MillionProps) => render(props)) as any,
+    unwrap as any,
+    shouldCompiledBlockUpdate as Parameters<typeof createBlock>[2],
+    options.svg,
+  );
+
+  const RenderBlock = (props: MillionProps, forwardedRef: Ref<any>) => {
+    const hmrTimestamp = props._hmr;
+    const ref = useRef<HTMLElement | null>(null);
+    const patch = useRef<((props: MillionProps) => void) | null>(null);
+    const portalRef = useRef<MillionPortal[]>([]);
+
+    props = processProps(props, forwardedRef, portalRef.current);
+    patch.current?.(props);
+
+    const effect = useCallback(() => {
+      if (!ref.current) return;
+      const currentBlock = blockTarget(props, props.key);
+      if (hmrTimestamp && ref.current?.textContent) {
+        ref.current.textContent = '';
+      }
+      if (patch.current === null || hmrTimestamp) {
+        mount$.call(currentBlock, ref.current!, null);
+        patch.current = (props: MillionProps) => {
+          patchBlock(
+            currentBlock,
+            blockTarget(
+              props,
+              props.key,
+              shouldCompiledBlockUpdate as Parameters<typeof createBlock>[2],
+            ),
+          );
+        };
+      }
+      return () => {
+        removeBlock.call(currentBlock);
+      };
+    }, []);
+
+    const marker = useMemo(() => {
+      return createElement(options.as ?? defaultType, { ref });
+    }, []);
+
+    const childrenSize = portalRef.current.length;
+    const children = new Array(childrenSize);
+    for (let i = 0; i < childrenSize; ++i) {
+      children[i] = portalRef.current[i]?.portal;
+    }
+
+    return createElement(
+      Fragment,
+      {},
+      marker,
+      createElement(Effect, {
+        effect,
+        deps: hmrTimestamp ? [hmrTimestamp] : [],
+      }),
+      children,
+    );
+  };
+
+  if (!MapHas$.call(REGISTRY, RenderBlock)) {
+    MapSet$.call(REGISTRY, RenderBlock, compiledBlock);
+  }
+
+  if (options.name) {
+    RenderBlock.displayName = `Million(Block(${blockName}))`;
+  }
 
   const portalCount = portals?.length || 0;
 
@@ -76,7 +155,6 @@ export function compiledBlock(
         }
       : (props: MillionProps) => createElement(RenderBlock, props);
 
-  // TODO dev mode
   if (options.name) {
     Component.displayName = `Million(CompiledBlock(Outer(${options.name})))`;
   }

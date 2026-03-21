@@ -20,6 +20,12 @@ importers:
       kleur:
         specifier: ^4.1.5
         version: 4.1.5
+      react:
+        specifier: ^18.2.0 || ^19.0.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0 || ^19.0.0
+        version: 18.2.0(react@18.2.0)
       undici:
         specifier: ^6.3.0
         version: 6.3.0
@@ -155,17 +161,17 @@ importers:
   packages/experimental:
     dependencies:
       react:
-        specifier: ^18.2.0
+        specifier: ^18.2.0 || ^19.0.0
         version: 18.2.0
       react-dom:
-        specifier: ^18.2.0
+        specifier: ^18.2.0 || ^19.0.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@types/react':
-        specifier: ^18.0.28
-        version: 18.2.38
+        specifier: ^18.0.28 || ^19.0.0
+        version: 18.2.55
       '@types/react-dom':
-        specifier: ^18.2.6
+        specifier: ^18.2.6 || ^19.0.0
         version: 18.2.17
 
   packages/jsx-runtime: {}
@@ -180,10 +186,10 @@ importers:
         version: 1.1.1(emoji-mart@5.5.2)(react@18.2.0)
       '@hello-pangea/dnd':
         specifier: ^16.3.0
-        version: 16.3.0(@types/react-dom@18.2.17)(@types/react@18.2.38)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        version: 16.3.0(@types/react-dom@18.2.17)(@types/react@18.2.55)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@reduxjs/toolkit':
         specifier: ^1.9.6
-        version: 1.9.7(react-redux@8.1.3(@types/react-dom@18.2.17)(@types/react@18.2.38)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(redux@4.2.1))(react@18.2.0)
+        version: 1.9.7(react-redux@8.1.3(@types/react-dom@18.2.17)(@types/react@18.2.55)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(redux@4.2.1))(react@18.2.0)
       '@tanstack/react-query':
         specifier: ^4.32.6
         version: 4.36.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -207,18 +213,18 @@ importers:
         version: 4.5.16(react@18.2.0)
       jotai:
         specifier: ^2.3.1
-        version: 2.6.0(@types/react@18.2.38)(react@18.2.0)
+        version: 2.6.0(@types/react@18.2.55)(react@18.2.0)
       marked:
         specifier: ^9.1.2
         version: 9.1.6
       react:
-        specifier: ^18.2.0
+        specifier: ^18.2.0 || ^19.0.0
         version: 18.2.0
       react-calendar:
         specifier: ^4.6.0
-        version: 4.6.1(@types/react@18.2.38)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        version: 4.6.1(@types/react@18.2.55)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-dom:
-        specifier: ^18.2.0
+        specifier: ^18.2.0 || ^19.0.0
         version: 18.2.0(react@18.2.0)
       react-error-boundary:
         specifier: ^4.0.11
@@ -231,7 +237,7 @@ importers:
         version: 2.0.12(react@18.2.0)
       react-redux:
         specifier: ^8.1.3
-        version: 8.1.3(@types/react-dom@18.2.17)(@types/react@18.2.38)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(redux@4.2.1)
+        version: 8.1.3(@types/react-dom@18.2.17)(@types/react@18.2.55)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(redux@4.2.1)
       react-router-dom:
         specifier: ^6.15.0
         version: 6.20.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -258,19 +264,19 @@ importers:
         version: 9.0.0
       valtio:
         specifier: ^1.11.2
-        version: 1.12.0(@types/react@18.2.38)(react@18.2.0)
+        version: 1.12.0(@types/react@18.2.55)(react@18.2.0)
       wouter:
         specifier: ^2.11.0
         version: 2.12.1(react@18.2.0)
       zustand:
         specifier: ^4.4.1
-        version: 4.4.6(@types/react@18.2.38)(immer@9.0.21)(react@18.2.0)
+        version: 4.4.6(@types/react@18.2.55)(immer@9.0.21)(react@18.2.0)
     devDependencies:
       '@types/react':
-        specifier: ^18.2.20
-        version: 18.2.38
+        specifier: ^18.2.20 || ^19.0.0
+        version: 18.2.55
       '@types/react-dom':
-        specifier: ^18.2.7
+        specifier: ^18.2.7 || ^19.0.0
         version: 18.2.17
       '@vitejs/plugin-react':
         specifier: ^4.0.0
@@ -287,33 +293,33 @@ importers:
   packages/react:
     dependencies:
       react:
-        specifier: ^18.2.0
+        specifier: ^18.2.0 || ^19.0.0
         version: 18.2.0
       react-dom:
-        specifier: ^18.2.0
+        specifier: ^18.2.0 || ^19.0.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@types/react':
-        specifier: ^18.0.28
-        version: 18.2.38
+        specifier: ^18.0.28 || ^19.0.0
+        version: 18.2.55
       '@types/react-dom':
-        specifier: ^18.0.11
+        specifier: ^18.0.11 || ^19.0.0
         version: 18.2.17
 
   packages/react-server:
     dependencies:
       react:
-        specifier: ^18.2.0
+        specifier: ^18.2.0 || ^19.0.0
         version: 18.2.0
       react-dom:
-        specifier: ^18.2.0
+        specifier: ^18.2.0 || ^19.0.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@types/react':
-        specifier: ^18.0.28
-        version: 18.2.38
+        specifier: ^18.0.28 || ^19.0.0
+        version: 18.2.55
       '@types/react-dom':
-        specifier: ^18.2.6
+        specifier: ^18.2.6 || ^19.0.0
         version: 18.2.17
       html-react-parser:
         specifier: ^5.1.6
@@ -324,12 +330,12 @@ importers:
   packages/types:
     dependencies:
       react:
-        specifier: ^18.2.0
+        specifier: ^18.2.0 || ^19.0.0
         version: 18.2.0
     devDependencies:
       '@types/react':
-        specifier: ^18.0.28
-        version: 18.2.38
+        specifier: ^18.0.28 || ^19.0.0
+        version: 18.2.55
 
   website:
     dependencies:
@@ -6799,7 +6805,7 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@hello-pangea/dnd@16.3.0(@types/react-dom@18.2.17)(@types/react@18.2.38)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@hello-pangea/dnd@16.3.0(@types/react-dom@18.2.17)(@types/react@18.2.55)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.4
       css-box-model: 1.2.1
@@ -6807,7 +6813,7 @@ snapshots:
       raf-schd: 4.0.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      react-redux: 8.1.3(@types/react-dom@18.2.17)(@types/react@18.2.38)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(redux@4.2.1)
+      react-redux: 8.1.3(@types/react-dom@18.2.17)(@types/react@18.2.55)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(redux@4.2.1)
       redux: 4.2.1
       use-memo-one: 1.1.3(react@18.2.0)
     transitivePeerDependencies:
@@ -6937,7 +6943,7 @@ snapshots:
   '@mdx-js/react@2.3.0(react@18.2.0)':
     dependencies:
       '@types/mdx': 2.0.10
-      '@types/react': 18.2.38
+      '@types/react': 18.2.55
       react: 18.2.0
 
   '@microsoft/tsdoc-config@0.16.2':
@@ -7059,7 +7065,7 @@ snapshots:
     dependencies:
       react: 18.2.0
 
-  '@reduxjs/toolkit@1.9.7(react-redux@8.1.3(@types/react-dom@18.2.17)(@types/react@18.2.38)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(redux@4.2.1))(react@18.2.0)':
+  '@reduxjs/toolkit@1.9.7(react-redux@8.1.3(@types/react-dom@18.2.17)(@types/react@18.2.55)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(redux@4.2.1))(react@18.2.0)':
     dependencies:
       immer: 9.0.21
       redux: 4.2.1
@@ -7067,7 +7073,7 @@ snapshots:
       reselect: 4.1.8
     optionalDependencies:
       react: 18.2.0
-      react-redux: 8.1.3(@types/react-dom@18.2.17)(@types/react@18.2.38)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(redux@4.2.1)
+      react-redux: 8.1.3(@types/react-dom@18.2.17)(@types/react@18.2.55)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(redux@4.2.1)
 
   '@remix-run/router@1.13.0': {}
 
@@ -7316,7 +7322,7 @@ snapshots:
 
   '@types/hoist-non-react-statics@3.3.5':
     dependencies:
-      '@types/react': 18.2.38
+      '@types/react': 18.2.55
       hoist-non-react-statics: 3.3.2
 
   '@types/istanbul-lib-coverage@2.0.6': {}
@@ -7363,12 +7369,12 @@ snapshots:
 
   '@types/react-dom@18.2.17':
     dependencies:
-      '@types/react': 18.2.38
+      '@types/react': 18.2.55
 
   '@types/react-redux@7.1.31':
     dependencies:
       '@types/hoist-non-react-statics': 3.3.5
-      '@types/react': 18.2.38
+      '@types/react': 18.2.55
       hoist-non-react-statics: 3.3.2
       redux: 4.2.1
 
@@ -8538,9 +8544,9 @@ snapshots:
 
   dequal@2.0.3: {}
 
-  derive-valtio@0.1.0(valtio@1.12.0(@types/react@18.2.38)(react@18.2.0)):
+  derive-valtio@0.1.0(valtio@1.12.0(@types/react@18.2.55)(react@18.2.0)):
     dependencies:
-      valtio: 1.12.0(@types/react@18.2.38)(react@18.2.0)
+      valtio: 1.12.0(@types/react@18.2.55)(react@18.2.0)
 
   destr@2.0.2: {}
 
@@ -9919,9 +9925,9 @@ snapshots:
 
   jju@1.4.0: {}
 
-  jotai@2.6.0(@types/react@18.2.38)(react@18.2.0):
+  jotai@2.6.0(@types/react@18.2.55)(react@18.2.0):
     optionalDependencies:
-      '@types/react': 18.2.38
+      '@types/react': 18.2.55
       react: 18.2.0
 
   jquery@3.7.1: {}
@@ -11324,7 +11330,7 @@ snapshots:
       destr: 2.0.2
       flat: 5.0.2
 
-  react-calendar@4.6.1(@types/react@18.2.38)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  react-calendar@4.6.1(@types/react@18.2.55)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@wojtekmaj/date-utils': 1.5.1
       clsx: 2.0.0
@@ -11334,7 +11340,7 @@ snapshots:
       react-dom: 18.2.0(react@18.2.0)
       tiny-warning: 1.0.3
     optionalDependencies:
-      '@types/react': 18.2.38
+      '@types/react': 18.2.55
 
   react-chartjs-2@5.2.0(chart.js@4.4.0)(react@18.2.0):
     dependencies:
@@ -11419,7 +11425,7 @@ snapshots:
       qr.js: 0.0.0
       react: 18.2.0
 
-  react-redux@8.1.3(@types/react-dom@18.2.17)(@types/react@18.2.38)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(redux@4.2.1):
+  react-redux@8.1.3(@types/react-dom@18.2.17)(@types/react@18.2.55)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(redux@4.2.1):
     dependencies:
       '@babel/runtime': 7.23.4
       '@types/hoist-non-react-statics': 3.3.5
@@ -11429,7 +11435,7 @@ snapshots:
       react-is: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
     optionalDependencies:
-      '@types/react': 18.2.38
+      '@types/react': 18.2.55
       '@types/react-dom': 18.2.17
       react-dom: 18.2.0(react@18.2.0)
       redux: 4.2.1
@@ -12465,13 +12471,13 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  valtio@1.12.0(@types/react@18.2.38)(react@18.2.0):
+  valtio@1.12.0(@types/react@18.2.55)(react@18.2.0):
     dependencies:
-      derive-valtio: 0.1.0(valtio@1.12.0(@types/react@18.2.38)(react@18.2.0))
+      derive-valtio: 0.1.0(valtio@1.12.0(@types/react@18.2.55)(react@18.2.0))
       proxy-compare: 2.5.1
       use-sync-external-store: 1.2.0(react@18.2.0)
     optionalDependencies:
-      '@types/react': 18.2.38
+      '@types/react': 18.2.55
       react: 18.2.0
 
   vfile-location@5.0.2:
@@ -12749,11 +12755,11 @@ snapshots:
 
   zod@3.22.4: {}
 
-  zustand@4.4.6(@types/react@18.2.38)(immer@9.0.21)(react@18.2.0):
+  zustand@4.4.6(@types/react@18.2.55)(immer@9.0.21)(react@18.2.0):
     dependencies:
       use-sync-external-store: 1.2.0(react@18.2.0)
     optionalDependencies:
-      '@types/react': 18.2.38
+      '@types/react': 18.2.55
       immer: 9.0.21
       react: 18.2.0
 

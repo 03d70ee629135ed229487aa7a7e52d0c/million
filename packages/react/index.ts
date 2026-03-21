@@ -1,7 +1,10 @@
 import { block as internalBlock, patch, mount } from '../million';
 
-export { block } from './block';
-export { For } from './for';
+export const block = () => {
+  throw new Error(
+    'block() requires the Million.js compiler plugin. Manual runtime usage is no longer supported.',
+  );
+};
 export { renderReactScope, unwrap } from './utils';
 export { REGISTRY } from './constants';
 export const INTERNALS = {

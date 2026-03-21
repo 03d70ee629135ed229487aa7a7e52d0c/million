@@ -63,10 +63,6 @@ export interface TrackedImports {
     client: ImportDefinition;
     server: ImportDefinition;
   };
-  For: {
-    client: ImportDefinition;
-    server: ImportDefinition;
-  };
 }
 
 export const INVERSE_IMPORTS = {
@@ -90,18 +86,6 @@ export const TRACKED_IMPORTS: TrackedImports = {
     server: {
       kind: 'named',
       name: 'block',
-      source: 'million/react-server',
-    },
-  },
-  For: {
-    client: {
-      kind: 'named',
-      name: 'For',
-      source: 'million/react',
-    },
-    server: {
-      kind: 'named',
-      name: 'For',
       source: 'million/react-server',
     },
   },

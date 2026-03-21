@@ -144,39 +144,6 @@ function isJSXSVGElement(path: babel.NodePath<t.JSXElement>): boolean {
   return false;
 }
 
-function isJSXForElement(
-  ctx: StateContext,
-  path: babel.NodePath<t.JSXElement>,
-): boolean {
-  const openingElement = path.get('openingElement');
-  const name = openingElement.get('name');
-  /**
-   * Only valid component elements are member expressions and identifiers
-   * starting with component-ish name
-   */
-  if (
-    isPathValid(name, t.isJSXIdentifier) ||
-    isPathValid(name, t.isJSXMemberExpression)
-  ) {
-    return (
-      getValidImportDefinition(ctx, name) ===
-      TRACKED_IMPORTS.For[ctx.serverMode]
-    );
-  }
-  return false;
-}
-
-function transformJSXForElement(
-  ctx: StateContext,
-  path: babel.NodePath<t.JSXElement>,
-): void {
-  if (isJSXForElement(ctx, path)) {
-    path.node.openingElement.attributes.push(
-      t.jsxAttribute(t.jsxIdentifier('scoped')),
-    );
-  }
-}
-
 function extractJSXExpressionsFromJSXElement(
   state: JSXStateContext,
   path: babel.NodePath<t.JSXElement>,
@@ -188,7 +155,6 @@ function extractJSXExpressionsFromJSXElement(
    * to the expression array.
    */
   if (isJSXComponentElement(path)) {
-    transformJSXForElement(state.ctx, path);
     pushExpressionAndReplace(state, path, top, true);
     return true;
   }

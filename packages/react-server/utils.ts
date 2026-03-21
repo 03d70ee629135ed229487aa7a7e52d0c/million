@@ -117,10 +117,11 @@ function useCounter(isDisabled = false) {
     // To ensure that we only increment the global counter once, we store the starting id for this component in
     // a weak map associated with the Fiber. On the second render, we reset the global counter to this value.
     // Since React runs the second render immediately after the first, this is safe.
-    // @ts-expect-error
-    const currentOwner =
-      React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
-        ?.ReactCurrentOwner?.current;
+    // @ts-expect-error — React 19 renamed the internals property
+    const internals =
+      (React as any).__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE ??
+      (React as any).__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+    const currentOwner = internals?.ReactCurrentOwner?.current;
     if (currentOwner) {
       const prevComponentValue = componentIds.get(currentOwner);
       if (prevComponentValue == null) {

@@ -33,7 +33,7 @@ export class MillionTelemetry {
   }
 
   private get enabled(): boolean {
-    return this.getConfigWithFallback('telemetry_enabled', () => true);
+    return this.getConfigWithFallback('telemetry_enabled', () => false);
   }
 
   private get anonymousId(): string {
