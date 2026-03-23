@@ -123,21 +123,8 @@ export const unplugin = createUnplugin((options: Options = {}, meta) => {
     );
   }
 
-  const telemetryInstance = new MillionTelemetry(options.telemetry);
-
-  void telemetryInstance.record({
-    event: 'compile',
-    payload: {
-      framework: meta.framework,
-      mode: options.mode,
-      server: options.server,
-      hmr: options.hmr,
-      rsc: options.rsc,
-      log: options.log,
-      auto: options.auto,
-      // optimize: options.optimize,
-    },
-  });
+  // Telemetry gutted — no data leaves this machine.
+  const telemetryInstance = new MillionTelemetry(true);
 
   return {
     enforce: 'pre',

@@ -114,12 +114,9 @@ export const catchError = (
 export const logImprovement = (
   component: string,
   improvement: number,
-  telemetry: MillionTelemetry,
+  _telemetry: MillionTelemetry,
 ): void => {
-  void telemetry.record({
-    event: 'improvement',
-    payload: { component, improvement },
-  });
+  // Telemetry removed — no data leaves this machine.
 
   const improvementFormatted = isFinite(improvement)
     ? (improvement * 100).toFixed(0)
